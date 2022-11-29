@@ -99,7 +99,7 @@ def main(POST_ID=None):
     options.add_argument("--disable-notifications")
     options.add_argument("--disable-dev-shm-usage")
     
-    driver = uc.Chrome(options=options, version_main=106, no_sandbox=False, headless=True) #TODO: Make Headless
+    driver = uc.Chrome(options=options, version_main=106, no_sandbox=False) #TODO: Make Headless
     
     download_screenshots(driver, reddit_object, comments_created)
 
@@ -127,10 +127,7 @@ if __name__ == "__main__":
     config = settings.check_toml("utils/.config.template.toml", "config.toml")
     config is False and exit()
     try:
-        if config["settings"]["times_to_run"]:
-            run_many(config["settings"]["times_to_run"])
-
-        elif len(config["reddit"]["thread"]["post_id"].split("+")) > 1:
+        if len(config["reddit"]["thread"]["post_id"].split("+")) > 1:
             for index, post_id in enumerate(config["reddit"]["thread"]["post_id"].split("+")):
                 index += 1
                 print_step(
