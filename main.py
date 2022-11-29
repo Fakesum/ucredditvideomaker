@@ -84,7 +84,7 @@ def download_screenshots(driver: uc.Chrome, reddit_object, comments_created):
     comment_screenshot(comments_created, common=reddit_object)
     
     driver.find_element(By.XPATH, f"//div[@data-testid='post-container']").screenshot("assets/temp/png/title.png")
-    print_substep("Comments downloaded Successfully.", style="bold greEen")
+    print_substep("Comments downloaded Successfully.", style="bold green")
     
     driver.quit()
 
@@ -98,7 +98,6 @@ def main(POST_ID=None):
     options = uc.ChromeOptions()
     options.add_argument("--disable-notifications")
     options.add_argument("--disable-dev-shm-usage")
-    options.timeouts = 10000
     
     driver = uc.Chrome(options=options, version_main=106, no_sandbox=False, headless=True) #TODO: Make Headless
     
