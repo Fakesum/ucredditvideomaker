@@ -134,7 +134,6 @@ if __name__ == "__main__":
                     f'on the {index}{("st" if index % 10 == 1 else ("nd" if index % 10 == 2 else ("rd" if index % 10 == 3 else "th")))} post of {len(config["reddit"]["thread"]["post_id"].split("+"))}'
                 )
                 main(post_id)
-                Popen("cls" if name == "nt" else "clear", shell=True).wait()
         else:
             main()
     except KeyboardInterrupt:  # TODO won't work with async code
