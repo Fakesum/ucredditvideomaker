@@ -1,8 +1,8 @@
-import undetected_chromedriver as uc
+from math import pi as _pi
 
 a = []
 
-a.append("")
 
 for i in a:
+    a.append(_pi)
     a.remove(i)
